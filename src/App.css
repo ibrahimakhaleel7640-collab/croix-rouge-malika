@@ -1,0 +1,210 @@
+/* Custom styles for Croix-Rouge Malika App */
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --red: #CC0000;
+  --red-dark: #990000;
+  --red-light: #FF3333;
+  --red-soft: #FFF0F0;
+  --gold: #C8922A;
+  --gold-light: #F0C060;
+  --cream: #FAF7F2;
+  --dark: #1A1A1A;
+  --dark2: #2D2D2D;
+  --gray: #6B6B6B;
+  --gray-light: #E8E4DF;
+  --white: #FFFFFF;
+  --success: #1A8A4A;
+  --warning: #D97706;
+  --info: #1D6FA4;
+}
+
+/* Font families */
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray);
+}
+
+/* Animation classes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+.animate-modal-in {
+  animation: modalIn 0.25s ease;
+}
+
+/* Table hover effect */
+.table-row-hover:hover {
+  background-color: var(--red-soft);
+}
+
+/* Button transitions */
+.btn-transition {
+  transition: all 0.2s ease;
+}
+
+.btn-transition:hover {
+  transform: translateY(-1px);
+}
+
+.btn-transition:active {
+  transform: translateY(0);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.16);
+}
+
+/* Focus styles */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--red);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--red);
+  color: white;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Mobile Input Styles */
+.input-mobile {
+  @apply w-full px-4 py-3 border-2 border-[#E8E4DF] rounded-lg focus:border-[#CC0000] focus:outline-none bg-white text-sm;
+}
+
+/* Slide up animation for mobile modals */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.25s ease-out;
+}
+
+/* Touch-friendly buttons */
+button, 
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  /* Larger touch targets */
+  table td, 
+  table th {
+    padding: 12px 8px;
+  }
+  
+  /* Prevent text selection on buttons */
+  button {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Safe area for bottom navigation on mobile */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
